@@ -15,9 +15,9 @@
    "theme": {
       "colors": {
          "frame": [0, 0, 0],
-         "frame_inactive": [4, 4, 4],
-         "toolbar": [10, 10, 10],
-         "tab_text": [46, 159, 255],
+         "frame_inactive": [2, 2, 2],
+         "toolbar": [0, 0, 0],
+         "tab_text": [45, 150, 255],
          "tab_background_text": [165, 165, 165],
          "bookmark_text": [240, 240, 240]
       }
