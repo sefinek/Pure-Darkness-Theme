@@ -1,16 +1,16 @@
 {
    "manifest_version": 3,
    "name": "Pure Darkness Theme",
-   "version": "1.0.1",
+   "version": "1.0.2",
    "description": "A truly deep black theme — gentle on the eyes, perfect for night owls and dark mode lovers.",
    "author": "Sefinek",
    "homepage_url": "https://github.com/sefinek/Pure-Darkness-Theme",
    "icons": {
-      "128": "images/128.png",
-      "64": "images/64.png",
-      "32": "images/32.png",
-      "24": "images/24.png",
-      "16": "images/16.png"
+      "128": "icons/128.png",
+      "64": "icons/64.png",
+      "32": "icons/32.png",
+      "24": "icons/24.png",
+      "16": "icons/16.png"
    },
    "theme": {
       "colors": {
@@ -29,7 +29,7 @@
          "ntp_link": [255, 255, 255]
       },
       "tints": {
-         "buttons": [ 0, 0, 1 ]
+         "buttons": [0, 0, 1]
       }
    }
 }
