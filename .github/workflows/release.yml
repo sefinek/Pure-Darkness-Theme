@@ -1,27 +1,38 @@
-name: Upload ZIP to Existing Release
+name: Create Release
 
 on:
-  push:
-    tags:
-      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
-  upload-zip:
+  create-release:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v7
 
+      - name: Read Version
+        id: version
+        run: |
+          VERSION=$(jq -r '.version' manifest.json)
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
+
       - name: Create ZIP Archive
         run: |
-          zip -r release-${{ github.ref_name }}.zip icons LICENSE manifest.json README.md
+          zip -r pure-darknes-theme_${{ steps.version.outputs.version }}.zip icons LICENSE manifest.json README.md
 
-      - name: Upload ZIP to Existing Release
+      - name: Create Release
         uses: softprops/action-gh-release@v3
         with:
-          files: release-${{ github.ref_name }}.zip
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: Pure Darkness Theme ${{ steps.version.outputs.tag }}
+          target_commitish: ${{ github.sha }}
+          generate_release_notes: true
+          files: pure-darknes-theme_${{ steps.version.outputs.version }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
