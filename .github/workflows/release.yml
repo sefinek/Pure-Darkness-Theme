@@ -12,21 +12,21 @@ jobs:
 
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v7
 
-      - name: Read Version
+      - name: Read version
         id: version
         run: |
           VERSION=$(jq -r '.version' manifest.json)
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
 
-      - name: Create ZIP Archive
+      - name: Create ZIP archive
         run: |
           zip -r pure-darkness-theme_${{ steps.version.outputs.version }}.zip icons LICENSE manifest.json README.md
 
-      - name: Create Release
+      - name: Create release
         uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ steps.version.outputs.tag }}
