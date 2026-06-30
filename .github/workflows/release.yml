@@ -8,17 +8,19 @@ on:
 jobs:
   upload-zip:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Create ZIP Archive
         run: |
           zip -r release-${{ github.ref_name }}.zip icons LICENSE manifest.json README.md
 
       - name: Upload ZIP to Existing Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: release-${{ github.ref_name }}.zip
         env:

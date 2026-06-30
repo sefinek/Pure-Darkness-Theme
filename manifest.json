@@ -1,7 +1,7 @@
 {
    "manifest_version": 3,
    "name": "Pure Darkness Theme",
-   "version": "1.0.2",
+   "version": "1.0.3",
    "description": "A truly deep black theme — gentle on the eyes, perfect for night owls and dark mode lovers.",
    "author": "Sefinek",
    "homepage_url": "https://github.com/sefinek/Pure-Darkness-Theme",
@@ -17,7 +17,7 @@
          "frame": [2, 2, 2],
          "frame_inactive": [2, 2, 2],
          "toolbar": [0, 0, 0],
-         "button_background": [0, 0, 0, 1],
+         "button_background": [0, 0, 0],
          "bookmark_text": [240, 240, 240],
          "tab_text": [45, 150, 255],
          "tab_background_text": [165, 165, 165],
